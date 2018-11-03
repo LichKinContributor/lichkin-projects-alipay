@@ -21,7 +21,7 @@ import lombok.Setter;
 public class SysAlipaySCCMTLogEntity extends BaseCompEntity {
 
 	/** serialVersionUID */
-	private static final long serialVersionUID = 30001L;
+	private static final long serialVersionUID = 61000L;
 
 	/** 订单类型（字典） */
 	@Column(length = 64, nullable = false)

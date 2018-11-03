@@ -7,12 +7,12 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayRequest;
 import com.alipay.api.AlipayResponse;
 import com.lichkin.application.services.AlipayService;
-import com.lichkin.springframework.services.LKService;
+import com.lichkin.springframework.services.LKDBService;
 
-class AlipayServiceImpl extends LKService implements AlipayService {
+class AlipayServiceImpl extends LKDBService implements AlipayService {
 
 	@Autowired
-	private AlipayClient alipayClient;
+	protected AlipayClient alipayClient;
 
 
 	@Override

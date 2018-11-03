@@ -1,7 +1,6 @@
 package com.lichkin.application.services;
 
 import com.lichkin.application.bean.in.impl.AlipayOpenAuthTokenIn;
-import com.lichkin.application.bean.out.impl.AlipayOpenAuthTokenOut;
 
 /**
  * 支付宝权限服务类
@@ -14,6 +13,6 @@ public interface AlipayOpenAuthTokenService {
 	 * @param in 入参
 	 * @return 出参
 	 */
-	AlipayOpenAuthTokenOut getOpenAuthToken(AlipayOpenAuthTokenIn in);
+	void getOpenAuthToken(AlipayOpenAuthTokenIn in);
 
 }

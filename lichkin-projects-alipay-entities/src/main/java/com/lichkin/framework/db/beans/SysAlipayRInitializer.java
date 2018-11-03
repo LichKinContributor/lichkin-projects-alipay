@@ -11,18 +11,25 @@ class SysAlipayRInitializer implements LKRInitializer {
 	 */
 	public static void init() {
 		LKDBResource.addTable("com.lichkin.springframework.entities.impl.SysAlipaySCCMTLogEntity", "T_SYS_ALIPAY_SCCMTLOG", "SysAlipaySCCMTLogEntity");
-		LKDBResource.addColumn("30001000", "SysAlipaySCCMTLogEntity", "id");
-		LKDBResource.addColumn("30001001", "SysAlipaySCCMTLogEntity", "usingStatus");
-		LKDBResource.addColumn("30001002", "SysAlipaySCCMTLogEntity", "insertTime");
-		LKDBResource.addColumn("30001003", "SysAlipaySCCMTLogEntity", "compId");
-		LKDBResource.addColumn("30001004", "SysAlipaySCCMTLogEntity", "orderType");
-		LKDBResource.addColumn("30001005", "SysAlipaySCCMTLogEntity", "outTradeNo");
-		LKDBResource.addColumn("30001006", "SysAlipaySCCMTLogEntity", "totalAmount");
-		LKDBResource.addColumn("30001007", "SysAlipaySCCMTLogEntity", "sellerId");
-		LKDBResource.addColumn("30001008", "SysAlipaySCCMTLogEntity", "subject");
-		LKDBResource.addColumn("30001009", "SysAlipaySCCMTLogEntity", "requestJson");
-		LKDBResource.addColumn("30001010", "SysAlipaySCCMTLogEntity", "tradeStatus");
-		LKDBResource.addColumn("30001011", "SysAlipaySCCMTLogEntity", "updateTime");
+		LKDBResource.addColumn("61000000", "SysAlipaySCCMTLogEntity", "id");
+		LKDBResource.addColumn("61000001", "SysAlipaySCCMTLogEntity", "usingStatus");
+		LKDBResource.addColumn("61000002", "SysAlipaySCCMTLogEntity", "insertTime");
+		LKDBResource.addColumn("61000003", "SysAlipaySCCMTLogEntity", "compId");
+		LKDBResource.addColumn("61000004", "SysAlipaySCCMTLogEntity", "orderType");
+		LKDBResource.addColumn("61000005", "SysAlipaySCCMTLogEntity", "outTradeNo");
+		LKDBResource.addColumn("61000006", "SysAlipaySCCMTLogEntity", "totalAmount");
+		LKDBResource.addColumn("61000007", "SysAlipaySCCMTLogEntity", "sellerId");
+		LKDBResource.addColumn("61000008", "SysAlipaySCCMTLogEntity", "subject");
+		LKDBResource.addColumn("61000009", "SysAlipaySCCMTLogEntity", "requestJson");
+		LKDBResource.addColumn("61000010", "SysAlipaySCCMTLogEntity", "tradeStatus");
+		LKDBResource.addColumn("61000011", "SysAlipaySCCMTLogEntity", "updateTime");
+		LKDBResource.addTable("com.lichkin.springframework.entities.impl.SysAlipayAccountEntity", "T_SYS_ALIPAY_ACCOUNT", "SysAlipayAccountEntity");
+		LKDBResource.addColumn("61001000", "SysAlipayAccountEntity", "id");
+		LKDBResource.addColumn("61001001", "SysAlipayAccountEntity", "usingStatus");
+		LKDBResource.addColumn("61001002", "SysAlipayAccountEntity", "insertTime");
+		LKDBResource.addColumn("61001003", "SysAlipayAccountEntity", "compId");
+		LKDBResource.addColumn("61001004", "SysAlipayAccountEntity", "accountNo");
+		LKDBResource.addColumn("61001005", "SysAlipayAccountEntity", "authToken");
 	}
 
 }
