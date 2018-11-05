@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.request.AlipayOpenAuthTokenAppRequest;
@@ -22,10 +23,11 @@ import com.lichkin.springframework.entities.impl.SysAlipayAccountEntity;
 public class AlipayOpenAuthTokenServiceImpl extends AlipayServiceImpl implements AlipayOpenAuthTokenService {
 
 	@Override
+	@Transactional
 	public void getOpenAuthToken(AlipayOpenAuthTokenIn in) {
 		AlipayOpenAuthTokenAppRequest request = new AlipayOpenAuthTokenAppRequest();
 		Map<String, String> map = new HashMap<>();
-		map.put("grant_type", "app_auth_code");
+		map.put("grant_type", "authorization_code");
 		map.put("code", in.getApp_auth_code());
 		request.setBizContent(LKJsonUtils.toJson(map));
 		try {
@@ -33,11 +35,13 @@ public class AlipayOpenAuthTokenServiceImpl extends AlipayServiceImpl implements
 			if (AlipayStatics.SUCCESS_CODE.equals((response).getCode())) {
 				String accountNo = response.getUserId();
 				QuerySQL sql = new QuerySQL(SysAlipayAccountEntity.class);
-				sql.eq(SysAlipayAccountR.compId, in.getCompId());
+				String compId = in.getCompId();
+				sql.eq(SysAlipayAccountR.compId, compId);
 				sql.eq(SysAlipayAccountR.accountNo, accountNo);
 				SysAlipayAccountEntity exist = dao.getOne(sql, SysAlipayAccountEntity.class);
 				if (exist == null) {
 					SysAlipayAccountEntity entity = new SysAlipayAccountEntity();
+					entity.setCompId(compId);
 					entity.setAccountNo(accountNo);
 					entity.setAuthToken(response.getAppAuthToken());
 					dao.persistOne(entity);
@@ -45,6 +49,7 @@ public class AlipayOpenAuthTokenServiceImpl extends AlipayServiceImpl implements
 					exist.setAuthToken(response.getAppAuthToken());
 					dao.mergeOne(exist);
 				}
+				return;
 			}
 		} catch (AlipayApiException e) {
 		}

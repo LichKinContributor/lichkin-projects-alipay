@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+}
+
+body {
+  background-color: #F6F6F6;
+}
+
+.successDiv {
+  text-align: center;
+}
+
+.successDiv .successTips {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.successDiv .openAuthBtn a {
+  display: inline-block;
+  height: 42px;
+  line-height: 42px;
+  width: 200px;
+  color: #FFFFFF;
+  border: 1px solid #58C94A;
+  background: #58C94A;
+  border-radius: 4px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.successDiv .openAuthBtn  a:hover {
+  background: #69d25b;
+}
+
+.successDiv .openAuthBtn a:active {
+  background: #61c554;
+}
